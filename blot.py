@@ -3,31 +3,21 @@ import time
 
 screen = MiniScreen()
 
-def penUp:
-	print("pen up")
-	
-def penDown:
-	print("pen down")
-
-def menu_exit:
-	screen.backlight.off()
-	
-exit = MenuAction("Exit", menu_pop)
-
-def menu_pop:
-	screen.backlight.off()
-	time.sleep(1)
-	screen.backlight.on()
+def p():
+	print("ji")
 
 menu = Menu("Welcome to Blot", [
 	Menu("Calibrate Pen Up", [
-		MenuAction("Pen Up", penUp),
-		MenuAction("Pen Up", penDown),
-		exit
+		MenuAction("Pen Up", p),
+		MenuAction("Pen Down", p),
 	]),
-	exit
+	Menu("Calibrate Speed", [
+		MenuAction("Slower", p),
+		MenuAction("Faster", p),
+	]),
 ])
-menu.show(screen)
+screen.show(menu)
+screen.run()
 
 time.sleep(10)
 

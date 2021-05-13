@@ -80,7 +80,7 @@ class MiniDisplay:
         newY = self.y + messageSize[1]
         textColor = "#000000" if selected else color
         if selected:
-            self.draw.rectangle([0, self.y, self.disp.width, newY], fill=color)
+            self.draw.rectangle([0, self.y, self.disp.height, newY], fill=color)
         self.draw.text((self.x, self.y), string, font=self.font, fill=textColor)
         self.y = newY + 1 # one extra pixel for inter-line spacing
 

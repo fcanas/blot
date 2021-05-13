@@ -1,7 +1,8 @@
-from MiniScreen import *
+from MiniDisplay import *
+from Screen import *
 import time
 
-screen = MiniScreen()
+screen = MiniDisplay()
 
 def p():
 	print("ji")

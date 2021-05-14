@@ -4,19 +4,17 @@ import time
 
 screen = MiniDisplay()
 
-def p():
+def goHome():
 	pass
 
 menu = Menu("Welcome to Blot", [
-	Menu("Calibrate Pen Up", [
-		MenuAction("Pen Up", p),
-		MenuAction("Pen Down", p),
-	]),
-	Menu("Calibrate Speed", [
-		MenuAction("Slower", p),
-		MenuAction("Faster", p),
-	]),
-])
+		Menu("Calibrate", [
+			ValueAdjust("Pen Up", 0, 75, 100),
+			ValueAdjust("Pen Down", 0, 30, 100),
+			ValueAdjust("Speed", 0, 120, 250, step=5)	
+		]),
+		MenuAction("Home", goHome)
+	])
 screen.show(menu)
 screen.run()
 

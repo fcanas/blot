@@ -1,5 +1,6 @@
 from ButtonInput import *
 
+# Base class for screens
 class Screen:
 	def __init__(self, title):
 		
@@ -73,6 +74,34 @@ class NavigationStack(Screen):
 		self.input.active = True
 		top.needsUpdate = True
 		
+
+class ValueAdjust(Screen):
+	def __init__(self, title, min, value, max, step=1):
+		Screen.__init__(self, title)
+		self.min = min
+		self.value = value
+		self.max = max
+		self.step = step
+	
+	def aAction(self):
+		self.value += self.step
+		self.needsUpdate = True
+	
+	def bAction(self):
+		self.value -= self.step
+		self.needsUpdate = True
+		
+	def abAction(self):
+		if self.navStack is not None:
+			self.navStack.pop()
+	
+	def render(self, screen):
+		Screen.render(self, screen)
+		screen.blank()
+		screen.printLn(self.title, "#AAAAAA")
+		screen.printLn("{}".format(self.value))
+		screen.commit()
+	
 
 class Menu(Screen):
 	def __init__(self, title, options, selectedIndex=0):

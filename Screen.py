@@ -57,7 +57,7 @@ class NavigationStack(Screen):
 		top.navStack = self
 		self.stack.append(top)
 		top.needsUpdate = True
-		self.input = x.input
+		self.input = top.input
 		self.input.active = True
 	
 	def pop(self):

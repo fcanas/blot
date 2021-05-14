@@ -23,7 +23,8 @@ class MiniDisplay:
     
     def run(self):
         while True:
-            time.sleep(0.016)
+            # time.sleep(0.016)
+            time.sleep(0.1)
             self.screen.input.poll()
             if self.screen.needsUpdate:
                 print("no skip")

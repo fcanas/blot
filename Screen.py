@@ -53,10 +53,10 @@ class NavigationStack(Screen):
 		top = self.stack[-1]
 		top.render(screen)
 	
-	def push(self, x):
-		x.navStack = self
-		self.stack.append(x)
-		self.needsUpdate = True
+	def push(self, top):
+		top.navStack = self
+		self.stack.append(top)
+		top.needsUpdate = True
 		self.input = x.input
 		self.input.active = True
 	
@@ -71,7 +71,7 @@ class NavigationStack(Screen):
 		top = self.stack[-1]
 		self.input = top.input
 		self.input.active = True
-		self.needsUpdate = True
+		top.needsUpdate = True
 		
 
 class Menu(Screen):

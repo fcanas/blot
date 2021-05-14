@@ -5,7 +5,7 @@ import time
 screen = MiniDisplay()
 
 def p():
-	print("ji")
+	pass
 
 menu = Menu("Welcome to Blot", [
 	Menu("Calibrate Pen Up", [
